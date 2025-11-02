@@ -116,6 +116,7 @@ const Contact = () => {
             </p>
           </motion.div>
 
+<<<<<<< HEAD
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {contactInfo.map((info, index) => (
               <motion.div
@@ -134,6 +135,7 @@ const Contact = () => {
                 {info.link !== '#' && (
                   <a
                     href={info.link}
+<<<<<<< HEAD
                     target={info.link.includes('instagram') || info.link.includes('linkedin') || info.link.includes('whatsapp') ? '_blank' : '_self'}
                     rel={info.link.includes('instagram') || info.link.includes('linkedin') || info.link.includes('whatsapp') ? 'noopener noreferrer' : ''}
                     className="inline-block mt-4 text-purple-600 hover:text-purple-700 font-semibold"

@@ -26,7 +26,6 @@ export const socialLinks = [
     label: 'WhatsApp Community',
   },
 ];
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
