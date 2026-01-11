@@ -1,49 +1,35 @@
+
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import FunkyMarquee from '../components/FunkyMarquee';
 import {
   Calendar,
   Users,
   Star,
-  Trophy
+  Trophy,
+  ArrowRight
 } from 'lucide-react';
 
 const Events = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // If no hash, scroll to top immediately
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
-    
-    // Handle hash navigation on page load and navigation
     const handleHashScroll = () => {
       const hash = window.location.hash;
       if (hash) {
         const element = document.getElementById(hash.substring(1));
         if (element) {
-          // Add a delay to ensure page is fully rendered
           setTimeout(() => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 500);
         }
       }
     };
-
-    // Run immediately
     handleHashScroll();
-
-    // Also run when location changes with additional delays
-    const timer1 = setTimeout(handleHashScroll, 200);
-    const timer2 = setTimeout(handleHashScroll, 500);
-    const timer3 = setTimeout(handleHashScroll, 1000);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-    };
   }, [location]);
 
   const successfulEvents = [
@@ -86,175 +72,121 @@ const Events = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen bg-black text-white selection:bg-brand-yellow selection:text-black font-sans overflow-x-hidden">
+
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 text-center">
+      <section className="min-h-[70vh] md:min-h-screen flex flex-col justify-center pt-32 pb-12 relative border-b-4 border-white">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// SUCCESSFUL EVENTS</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">
-              Our <span className="text-blue-400">Events</span>
+            <h1 className="text-7xl md:text-[15vw] leading-[0.8] font-black tracking-tighter text-transparent stroke-text hover:text-brand-yellow transition-colors duration-500 cursor-default">
+              OUR<br /><span className="text-white">EVENTS</span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8 font-body">
-              Discover our successful events, workshops, and competitions that have shaped the entrepreneurial journey at DYPIU
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full">
-                <span className="text-white font-semibold font-space">Competitions</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full">
-                <span className="text-white font-semibold font-space">Workshops</span>
-              </div>
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full">
-                <span className="text-white font-semibold font-space">Networking</span>
-              </div>
+
+            <div className="flex flex-wrap gap-4 mt-12">
+              {["COMPETITIONS", "WORKSHOPS", "NETWORKING"].map((tag, i) => (
+                <span key={i} className="px-6 py-3 border-2 border-white rounded-full font-bold text-xl hover:bg-white hover:text-black transition-colors cursor-default">
+                  {tag}
+                </span>
+              ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <section id="upcoming-events" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// WHAT'S NEXT</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Upcoming Events
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              Don't miss out on our exciting upcoming events and opportunities to grow your entrepreneurial journey
-            </p>
-          </motion.div>
+      <FunkyMarquee text="UPCOMING" direction="left" speed={20} className="bg-brand-yellow text-black border-b-4 border-black" />
 
-          {/* FinBiz'25 Event Card */}
-          <div className="max-w-md mx-auto">
+      {/* Upcoming Events */}
+      <section id="upcoming-events" className="py-12 md:py-20 px-4 bg-zinc-900 border-b-4 border-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-6xl font-black mb-12 tracking-tighter uppercase">
+            WHAT'S <span className="text-brand-yellow">NEXT?</span>
+          </h2>
+
+          {/* FinBiz'25 Event Card - Brutalist */}
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col ring-2 ring-purple-500"
+              className="bg-black border-4 border-brand-yellow rounded-[2rem] p-8 md:p-12 shadow-[12px_12px_0px_white] hover:shadow-[8px_8px_0px_white] hover:translate-x-1 hover:translate-y-1 transition-all"
             >
-              {/* Featured Badge */}
-              <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2">
-                <span className="font-semibold flex items-center justify-center">
-                  <Star className="w-4 h-4 mr-2" />
-                  Upcoming Event
-                </span>
-              </div>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex-1">
+                  <div className="inline-block bg-brand-yellow text-black font-black px-4 py-1 mb-4 text-sm uppercase">Featured Event</div>
+                  <h3 className="text-2xl md:text-5xl font-black mb-6 uppercase leading-tight">
+                    FinBiz'25 <span className="stroke-text text-transparent">SURYA</span>
+                  </h3>
+                  <p className="text-xl text-gray-400 font-bold mb-8">
+                    An unprecedented entrepreneurship & trading conclave by E-Cell DYPIU. 36-hour marathon of extensive learning and competition.
+                  </p>
 
-              {/* Content without image */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">FinBiz'25 Powered by Surya Electronics</h3>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">
-                  An unprecedented entrepreneurship & trading conclave by E-Cell DYPIU in collaboration
-                  with E-Cell IIT Bombay. Experience intensive learning and real-time competition in
-                  this transformative 36-hour marathon.
-                </p>
+                  <div className="flex gap-6 mb-8 text-lg font-mono">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="text-brand-yellow" /> 8-9 NOV
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Trophy className="text-brand-yellow" /> 36 HOURS
+                    </div>
+                  </div>
 
-                <div className="space-y-2 mb-6">
-                  <div className="flex items-center text-gray-600 text-sm">
-                    <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                    <span>8th & 9th November</span>
-                  </div>
-                  <div className="flex items-center text-gray-600 text-sm">
-                    <Trophy className="w-4 h-4 mr-2 text-blue-600" />
-                    <span>36 Hours Event</span>
-                  </div>
+                  <Link to="/events/finbiz" className="inline-block bg-white text-black text-xl font-black px-8 py-4 border-4 border-transparent hover:border-black hover:bg-brand-yellow transition-colors">
+                    VIEW DETAILS
+                  </Link>
                 </div>
-
-                <Link
-                  to="/events/finbiz"
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-lg"
-                >
-                  <span className="font-bold text-sm">View Details</span>
-                </Link>
+                <div className="hidden md:block w-48 h-48 bg-zinc-800 border-4 border-white rotate-3 flex items-center justify-center">
+                  <Star className="w-24 h-24 text-white" />
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Successful Events */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// OUR SUCCESS</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Successful Events
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              Celebrating our achievements and the impact we've made in the entrepreneurial ecosystem
-            </p>
-          </motion.div>
+      <FunkyMarquee text="SUCCESS" direction="right" speed={15} className="bg-white text-black border-y-4 border-black rotate-1 scale-105 z-20" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Successful Events */}
+      <section className="py-16 md:py-32 px-4 bg-black">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-6xl font-black mb-20 text-center tracking-tighter uppercase text-white">
+            PAST <span className="text-brand-yellow">HIGHLIGHTS</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {successfulEvents.map((event, index) => (
               <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col ${event.featured ? 'ring-2 ring-purple-500' : ''
-                  }`}
+                key={index}
+                whileHover={{ y: -10 }}
+                className="group bg-zinc-900 border-4 border-zinc-700 hover:border-brand-yellow rounded-[2rem] overflow-hidden transition-all duration-300"
               >
-                {event.featured && (
-                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2">
-                    <span className="font-semibold flex items-center justify-center">
-                      <Star className="w-4 h-4 mr-2" />
-                      Featured Event
-                    </span>
-                  </div>
-                )}
-
-                <div className="relative bg-gray-50 flex items-center justify-center p-6">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-auto object-contain max-h-64"
-                  />
+                <div className="h-64 bg-white p-8 border-b-4 border-black relative overflow-hidden">
+                  <img src={event.image} alt={event.title} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
                 </div>
-
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{event.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed flex-1">{event.description}</p>
-
-                  <div className="space-y-2 mb-6">
-                    <div className="flex items-center text-gray-600 text-sm">
-                      <Calendar className="w-4 h-4 mr-2 text-blue-600" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="flex items-center text-gray-600 text-sm">
-                      <Users className="w-4 h-4 mr-2 text-blue-600" />
-                      <span>{event.participants} Participants</span>
-                    </div>
+                <div className="p-8">
+                  <h3 className="text-3xl font-black uppercase mb-4">{event.title}</h3>
+                  <div className="flex justify-between items-center border-t-2 border-zinc-700 pt-4 mt-4">
+                    <span className="font-mono text-brand-yellow">{event.date}</span>
+                    <Link to={`/events/${event.title.toLowerCase().replace("'", "").replace("25", "")}`}>
+                      <div className="w-12 h-12 bg-black border-2 border-white rounded-full flex items-center justify-center group-hover:bg-brand-yellow group-hover:text-black group-hover:border-black transition-all">
+                        <ArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform" />
+                      </div>
+                    </Link>
                   </div>
-
-                  <Link
-                    to={`/events/${event.title.toLowerCase().replace("'", "").replace("25", "")}`}
-                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center shadow-lg mt-auto"
-                  >
-                    <span className="font-bold text-sm">View Details</span>
-                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      <style>{`
+        .stroke-text {
+          -webkit-text-stroke: 2px white;
+        }
+      `}</style>
     </div>
   );
 };

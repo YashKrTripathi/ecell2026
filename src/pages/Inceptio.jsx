@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { 
-  Calendar, 
-  Users, 
+import {
+  Calendar,
+  Users,
   MapPin,
   Trophy,
   Award,
@@ -76,17 +76,17 @@ const Inceptio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Link 
-              to="/events" 
+            <Link
+              to="/events"
               className="inline-flex items-center text-blue-400 hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Events
             </Link>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// FLAGSHIP EVENT</p>
+                {/* Removed FLAGSHIP EVENT text */}
                 <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">
                   {eventDetails.title}
                 </h1>
@@ -94,7 +94,7 @@ const Inceptio = () => {
                 <p className="text-xl text-blue-100 mb-8 font-body leading-relaxed">
                   {eventDetails.longDescription}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-4 mb-8">
                   <div className="bg-white/10 backdrop-blur-lg px-4 py-2 rounded-lg flex items-center">
                     <Calendar className="w-5 h-5 mr-2 text-blue-400" />
@@ -110,7 +110,7 @@ const Inceptio = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="relative">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -118,8 +118,8 @@ const Inceptio = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20"
                 >
-                  <img 
-                    src={eventDetails.image} 
+                  <img
+                    src={eventDetails.image}
                     alt={eventDetails.title}
                     className="w-full h-64 object-contain rounded-2xl"
                   />
@@ -145,7 +145,7 @@ const Inceptio = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// EVENT HIGHLIGHTS</p>
+            {/* Removed EVENT HIGHLIGHTS text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               What Made It <span className="text-blue-600">Special</span>
             </h2>
@@ -179,7 +179,7 @@ const Inceptio = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// EVENT SCHEDULE</p>
+            {/* Removed EVENT SCHEDULE text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Two Days of <span className="text-blue-600">Innovation</span>
             </h2>
@@ -226,7 +226,7 @@ const Inceptio = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// EXPERT PANEL</p>
+            {/* Removed EXPERT PANEL text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Our Distinguished <span className="text-blue-600">Judges</span>
             </h2>
@@ -270,7 +270,7 @@ const Inceptio = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// PRIZES & AWARDS</p>
+            {/* Removed PRIZES & AWARDS text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Recognition & <span className="text-blue-600">Rewards</span>
             </h2>

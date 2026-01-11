@@ -1,15 +1,18 @@
+
 import JoinInfoPopover from '../components/JoinInfoPopover';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { 
-  Target, 
-  Eye, 
-  Heart, 
-  Users, 
-  Award, 
+import { Link } from 'react-router-dom';
+import FunkyMarquee from '../components/FunkyMarquee';
+import {
+  Target,
+  Eye,
+  Users,
+  Award,
   Lightbulb,
   TrendingUp,
-  Globe
+  Globe,
+  Star
 } from 'lucide-react';
 
 const About = () => {
@@ -41,267 +44,112 @@ const About = () => {
     },
   ];
 
-  const achievements = [
-    {
-      icon: Award,
-      title: 'Inceptio\'25',
-      description: 'Successfully completed our flagship entrepreneurship event at DYPIU',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Elevate\'25',
-      description: 'Organized startup acceleration and mentorship program',
-    },
-    {
-      icon: Lightbulb,
-      title: 'SIH Internal',
-      description: 'Conducted Smart India Hackathon internal competition at DYPIU',
-    },
-  ];
-
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen bg-black text-white selection:bg-brand-yellow selection:text-black overflow-x-hidden font-sans">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4">
+      <section className="min-h-[70vh] md:min-h-screen flex flex-col justify-center pt-32 pb-12 relative border-b-2 border-white/10">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// ABOUT US</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">
-              About <span className="text-blue-400">E-Cell DYPIU</span>
+            <h1 className="text-7xl md:text-[12vw] leading-[0.8] font-black tracking-tighter text-transparent stroke-text hover:text-brand-yellow transition-colors duration-500 cursor-default">
+              ABOUT<br /><span className="text-white">US</span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-body">
-              Empowering students to become successful entrepreneurs through innovation, 
-              mentorship, and real-world experience.
-            </p>
+            <div className="flex flex-col md:flex-row justify-between items-end mt-12 gap-8">
+              <p className="text-xl md:text-3xl font-bold max-w-2xl leading-tight">
+                EMPOWERING <span className="text-brand-yellow underline decoration-wavy underline-offset-8">STUDENTS</span> TO BECOME SUCCESSFUL ENTREPRENEURS.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
+      <FunkyMarquee text="INNOVATION" speed={15} className="bg-brand-yellow text-black border-y-4 border-black -rotate-1 scale-105 z-20" />
+
       {/* Overview Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-20 px-4">
+        <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
+            className="border-4 border-white rounded-[2rem] p-8 md:p-12 relative overflow-hidden bg-zinc-900"
           >
-            <div className="text-center mb-12">
-              <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// OVERVIEW</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">DYPIU Entrepreneurship Cell (E-Cell)</h2>
-              <h3 className="text-2xl font-bold text-blue-600 mb-8 font-space">Empowering Innovation, Building Future Leaders</h3>
-            </div>
-            
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 mb-8 text-xl leading-relaxed font-body text-center">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-yellow rounded-full blur-[100px] opacity-20 pointer-events-none" />
+
+            <h2 className="text-3xl md:text-6xl font-black mb-8 tracking-tighter uppercase">
+              DYPIU <span className="text-brand-yellow">E-CELL</span>
+            </h2>
+
+            <div className="prose prose-xl prose-invert max-w-none">
+              <p className="text-gray-300 font-bold leading-relaxed mb-12">
                 A dynamic, student-led platform dedicated to cultivating entrepreneurship and innovation. Our mission is to inspire and support students to explore their entrepreneurial ambitions, develop their ideas, and build sustainable ventures.
               </p>
 
-              <div className="mb-10">
-                <h4 className="text-2xl font-bold text-gray-900 mb-6 font-space text-center">What We Do</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 p-6 rounded-xl">
-                    <h5 className="font-bold text-blue-600 mb-3 font-space">Startup Pitches & Competitions</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We organize pitch events where students showcase their startup ideas to investors and industry leaders.</p>
-                  </div>
-                  <div className="bg-gray-50 p-6 rounded-xl">
-                    <h5 className="font-bold text-blue-600 mb-3 font-space">Workshops & Mentorship</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We conduct hands-on workshops and connect students with experienced mentors to help refine their business models and strategies.</p>
-                  </div>
-                  <div className="bg-gray-50 p-6 rounded-xl">
-                    <h5 className="font-bold text-blue-600 mb-3 font-space">Networking Opportunities</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We create spaces for students to meet industry professionals, investors, and fellow entrepreneurs to foster collaboration and knowledge-sharing.</p>
-                  </div>
-                  <div className="bg-gray-50 p-6 rounded-xl">
-                    <h5 className="font-bold text-blue-600 mb-3 font-space">Incubation & Acceleration</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">Through strategic partnerships with incubators and accelerators, we support startups in scaling and growth.</p>
-                  </div>
-                </div>
-              </div>
+              <h4 className="text-3xl font-black text-white mb-6 uppercase border-b-4 border-brand-yellow inline-block pb-2">What We Do</h4>
 
-              <div className="mb-10">
-                <h4 className="text-2xl font-bold text-gray-900 mb-6 font-space text-center">Why E-Cell?</h4>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center p-6 bg-blue-50 rounded-xl">
-                    <h5 className="text-xl font-bold text-blue-600 mb-3 font-space">Inspiration</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We ignite a passion for innovation and problem-solving among students.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                {[
+                  { title: "Startup Pitches & Competitions", desc: "We organize pitch events where students showcase their startup ideas to investors and industry leaders." },
+                  { title: "Workshops & Mentorship", desc: "We conduct hands-on workshops and connect students with experienced mentors to help refine their business models and strategies." },
+                  { title: "Networking Opportunities", desc: "We create spaces for students to meet industry professionals, investors, and fellow entrepreneurs." },
+                  { title: "Incubation & Acceleration", desc: "Through strategic partnerships with incubators and accelerators, we support startups in scaling and growth." }
+                ].map((item, index) => (
+                  <div key={index} className="bg-black border-2 border-zinc-700 p-6 rounded-xl hover:border-brand-yellow transition-all hover:shadow-[8px_8px_0px_white]">
+                    <h5 className="font-black text-brand-yellow mb-2 text-xl uppercase">// {item.title}</h5>
+                    <p className="text-gray-400 font-bold">{item.desc}</p>
                   </div>
-                  <div className="text-center p-6 bg-blue-50 rounded-xl">
-                    <h5 className="text-xl font-bold text-blue-600 mb-3 font-space">Growth</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We provide the tools, resources, and networks to help student startups thrive.</p>
-                  </div>
-                  <div className="text-center p-6 bg-blue-50 rounded-xl">
-                    <h5 className="text-xl font-bold text-blue-600 mb-3 font-space">Connection</h5>
-                    <p className="text-gray-700 font-body leading-relaxed">We create an ecosystem where students, faculty, industry leaders, and investors collaborate to drive success.</p>
-                  </div>
-                </div>
+                ))}
               </div>
-
-              <p className="text-gray-700 text-xl leading-relaxed font-body text-center mb-12">
-                Join us to connect, learn, and grow in a community of like-minded innovators. Follow our page for updates on upcoming events, workshops, and startup opportunities.
-              </p>
             </div>
-
-            {/* Team Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex justify-center"
-            >
-              <div className="w-full max-w-2xl h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/ecell-team-image.jpg" 
-                  alt="E-Cell DYPIU Team"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-                <div className="w-full h-full bg-gradient-primary rounded-2xl items-center justify-center shadow-2xl hidden">
-                  <div className="text-white text-center">
-                    <Users className="w-24 h-24 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold font-space">E-Cell DYPIU Team</h3>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-black relative">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// OUR PURPOSE</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Mission & <span className="text-blue-600">Vision</span>
-            </h2>
-          </motion.div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 font-space">Our Mission</h3>
-              <p className="text-gray-700 leading-relaxed text-lg font-body">
-                To cultivate an entrepreneurial mindset among students by providing 
-                them with the necessary resources, mentorship, and platform to 
-                transform their innovative ideas into successful ventures that 
-                create value for society.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-gradient-secondary rounded-full flex items-center justify-center mb-6">
-                <Eye className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 font-space">Our Vision</h3>
-              <p className="text-gray-700 leading-relaxed text-lg font-body">
-                To be recognized as the leading entrepreneurship cell that produces 
-                successful entrepreneurs who contribute to economic growth and social 
-                development, making DYPIU a hub of innovation and entrepreneurship.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// CORE PRINCIPLES</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Our <span className="text-blue-600">Values</span>
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              The principles that guide our actions and shape our community
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
+            {[
+              { title: "MISSION", icon: Target, desc: "To cultivate an entrepreneurial mindset among students by providing them with the necessary resources, mentorship, and platform to transform their innovative ideas into successful ventures that create value for society." },
+              { title: "VISION", icon: Eye, desc: "To be recognized as the leading entrepreneurship cell that produces successful entrepreneurs who contribute to economic growth and social development, making DYPIU a hub of innovation and entrepreneurship." }
+            ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center p-8 rounded-xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="bg-zinc-900 border-4 border-white p-10 rounded-[3rem] hover:rotate-2 transition-transform duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-white" />
+                <div className="w-20 h-20 bg-brand-yellow rounded-full flex items-center justify-center mb-6 border-4 border-black group-hover:scale-110 transition-transform">
+                  <item.icon className="w-10 h-10 text-black" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4 font-space">{value.title}</h3>
-                <p className="text-gray-700 font-body leading-relaxed">{value.description}</p>
+                <h3 className="text-5xl font-black text-white mb-6 uppercase tracking-tighter">{item.title}</h3>
+                <p className="text-xl text-gray-400 font-bold leading-relaxed border-l-4 border-brand-yellow pl-6">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="py-20 bg-gradient-primary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm font-bold">// SUCCESS METRICS</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-space">
-              Our Achievements
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto font-body">
-              Milestones that reflect our commitment to excellence and impact
-            </p>
-          </motion.div>
+      <FunkyMarquee text="VALUES" direction="right" speed={20} className="bg-white text-black border-y-4 border-black rotate-1 scale-105 z-20" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {achievements.map((achievement, index) => (
+      {/* Values Section */}
+      <section className="py-32 px-4 bg-black">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-lg p-8 rounded-xl text-center hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col justify-between"
+                whileHover={{ y: -10 }}
+                className="bg-black border-2 border-zinc-800 p-8 rounded-2xl hover:bg-brand-yellow hover:text-black transition-colors group"
               >
-                <div>
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <achievement.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-4 font-space">{achievement.title}</h3>
-                </div>
-                <p className="text-blue-100 font-body leading-relaxed">{achievement.description}</p>
+                <value.icon className="w-12 h-12 text-brand-yellow group-hover:text-black mb-6" />
+                <h3 className="text-2xl font-black uppercase mb-4">{value.title}</h3>
+                <p className="text-gray-500 font-bold group-hover:text-black/80">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -309,43 +157,31 @@ const About = () => {
       </section>
 
       {/* Join Us Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// JOIN THE MOVEMENT</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Ready to Join Our Journey?
-            </h2>
-            <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-body">
-              Become part of a community that's shaping the future of entrepreneurship. 
-              Your journey starts here.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <JoinInfoPopover>
-                <a
-                  href="https://forms.gle/Jg2szi9CoK6sNbE97"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Join E-Cell DYPIU — Join our mailing list"
-                  className="bg-gradient-primary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-space"
-                >
-                  Join E-Cell DYPIU
-                </a>
-              </JoinInfoPopover>
-              <a
-                href="/events"
-                className="bg-gradient-primary text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-space"
-              >
-                View Events
-              </a>
-            </div>
-          </motion.div>
+      <section className="py-40 bg-zinc-900 border-t-4 border-white relative overflow-hidden text-center">
+        <div className="container mx-auto relative z-10 px-4">
+          <h2 className="text-6xl md:text-9xl font-black text-white mb-12 tracking-tighter leading-none">
+            JOIN THE<br /><span className="text-brand-yellow">REVOLUTION</span>
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <JoinInfoPopover>
+              <button className="text-xl md:text-2xl font-black bg-white text-black px-12 py-6 rounded-full border-4 border-black hover:bg-brand-yellow hover:scale-105 transition-all shadow-[8px_8px_0px_#000]">
+                JOIN E-CELL
+              </button>
+            </JoinInfoPopover>
+            <Link to="/events">
+              <button className="text-xl md:text-2xl font-black bg-transparent text-white px-12 py-6 rounded-full border-4 border-white hover:bg-white hover:text-black hover:scale-105 transition-all">
+                VIEW EVENTS
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
+
+      <style>{`
+        .stroke-text {
+          -webkit-text-stroke: 2px white;
+        }
+      `}</style>
     </div>
   );
 };

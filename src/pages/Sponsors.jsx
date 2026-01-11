@@ -1,6 +1,8 @@
+
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import FunkyMarquee from '../components/FunkyMarquee';
 
 const Sponsors = () => {
   const sponsors = [
@@ -32,73 +34,102 @@ const Sponsors = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16 bg-gray-50">
-      <div className="container mx-auto px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// OUR PARTNERS</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-            Our <span className="text-blue-600">Sponsors</span>
-          </h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto font-body">
-            We're proud to partner with leading organizations that support entrepreneurship and innovation
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-black text-white selection:bg-brand-yellow selection:text-black font-sans overflow-x-hidden">
 
-        <div className="flex justify-center items-center gap-8 md:gap-12 flex-wrap mb-16">
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <a
-                href={sponsor.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <div className="w-64 h-32 flex items-center justify-center rounded-lg border border-gray-200 bg-white overflow-hidden p-2">
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="w-full h-full bg-gradient-primary rounded-lg items-center justify-center hidden">
-                    <span className="text-lg font-bold text-white font-space">{sponsor.name}</span>
-                  </div>
-                </div>
-              </a>
-            </motion.div>
-          ))}
+      {/* Hero Section */}
+      <section className="min-h-[70vh] md:min-h-screen flex flex-col justify-center pt-32 pb-12 relative border-b-2 border-white/10">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+          >
+            <h1 className="text-7xl md:text-[12vw] leading-[0.8] font-black tracking-tighter text-transparent stroke-text hover:text-brand-yellow transition-colors duration-500 cursor-default">
+              OUR<br /><span className="text-white">PARTNERS</span>
+            </h1>
+
+            <p className="text-xl md:text-3xl font-bold max-w-3xl mt-12 leading-tight">
+              POWERING <span className="text-brand-yellow underline decoration-wavy underline-offset-8">INNOVATION</span> TOGETHER.
+            </p>
+          </motion.div>
         </div>
+      </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-center"
-        >
-          <p className="text-gray-700 mb-6 font-body text-lg">Interested in sponsoring our events and initiatives?</p>
+      <FunkyMarquee text="SPONSORS" speed={20} className="bg-brand-yellow text-black border-y-4 border-black -rotate-1 scale-105 z-20" />
+
+      {/* Sponsors Grid */}
+      <section className="py-12 md:py-32 px-4 bg-zinc-900 border-t-4 border-white">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {sponsors.map((sponsor, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -10, rotate: index % 2 === 0 ? 2 : -2 }}
+                transition={{ duration: 0.4 }}
+                className="bg-black p-8 rounded-[2rem] border-4 border-white shadow-[10px_10px_0px_#FFB22C] group"
+              >
+                <a
+                  href={sponsor.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full flex flex-col items-center"
+                >
+                  <div className="w-full h-48 bg-white rounded-xl flex items-center justify-center p-6 border-4 border-black mb-6 group-hover:bg-brand-yellow transition-colors duration-300">
+                    <img
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <span className="hidden w-full h-full flex items-center justify-center font-black text-2xl text-black">
+                      {sponsor.name}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-black uppercase text-center group-hover:text-brand-yellow transition-colors">
+                    {sponsor.name}
+                  </h3>
+                  <div className="mt-4 flex items-center justify-center text-gray-500 group-hover:text-white transition-colors">
+                    <span className="font-bold mr-2">VISIT WEBSITE</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white text-black text-center relative overflow-hidden">
+        <div className="container mx-auto relative z-10 px-4">
+          <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter">
+            BECOME A <span className="text-brand-yellow stroke-black">SPONSOR</span>
+          </h2>
           <Link
             to="/contact"
-            className="bg-gradient-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 inline-flex items-center font-space"
+            className="text-xl md:text-3xl font-black bg-black text-white px-12 py-6 rounded-full border-4 border-transparent hover:bg-brand-yellow hover:text-black hover:border-black transition-all shadow-[8px_8px_0px_#FFB22C] inline-flex items-center gap-4"
           >
-            Become a Sponsor
-            <Star className="ml-2 w-5 h-5" />
+            GET IN TOUCH
+            <Star className="w-8 h-8 fill-current" />
           </Link>
-        </motion.div>
-      </div>
+        </div>
+      </section>
+
+      <style>{`
+        .stroke-text {
+          -webkit-text-stroke: 2px white;
+        }
+        .stroke-black {
+           -webkit-text-stroke: 2px black;
+           color: transparent;
+        }
+      `}</style>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { 
-  Calendar, 
+import {
+  Calendar,
   Clock,
   MapPin,
   Trophy,
@@ -278,7 +278,7 @@ const FinBiz = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// KEY FEATURES</p>
+            {/* Removed KEY FEATURES text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Event <span className="text-blue-600">Highlights</span>
             </h2>
@@ -316,7 +316,7 @@ const FinBiz = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// STRUCTURE</p>
+            {/* Removed STRUCTURE text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Event <span className="text-blue-600">Zones</span>
             </h2>
@@ -363,7 +363,7 @@ const FinBiz = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// TIMELINE</p>
+            {/* Removed TIMELINE text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Event <span className="text-blue-600">Schedule</span>
             </h2>
@@ -508,7 +508,7 @@ const FinBiz = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// Illuminate</p>
+            {/* Removed Illuminate text */}
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
               Workshop <span className="text-blue-600">Series</span>
             </h2>

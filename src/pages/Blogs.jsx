@@ -1,6 +1,7 @@
-﻿import { useEffect } from 'react';
+﻿
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   Calendar,
   Clock,
   ArrowRight,
@@ -10,7 +11,7 @@ import {
   Users
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import JoinInfoPopover from '../components/JoinInfoPopover';
+import FunkyMarquee from '../components/FunkyMarquee';
 
 const Blogs = () => {
   useEffect(() => {
@@ -31,7 +32,7 @@ const Blogs = () => {
     },
     {
       id: 2,
-      title: 'E-Cell DYPIU at CEO Pune E-Cell Meetup: Uniting Entrepreneurial Minds Across Pune',
+      title: 'E-Cell DYPIU at CEO Pune E-Cell Meetup',
       excerpt: 'A collaborative gathering of Pune\'s brightest entrepreneurial minds, fostering connections and sharing innovative ideas across the city\'s startup ecosystem.',
       author: 'E-Cell Team',
       date: 'September 27, 2025',
@@ -42,7 +43,7 @@ const Blogs = () => {
     },
     {
       id: 3,
-      title: 'E-Cell DYPIU at Entrepreneurship Awareness Drive, Pune – A Step Toward a Stronger Startup Ecosystem',
+      title: 'E-Cell DYPIU at Entrepreneurship Awareness Drive',
       excerpt: 'E-Cell DYPIU takes the lead in spreading entrepreneurship awareness across Pune, empowering aspiring entrepreneurs with knowledge and resources.',
       author: 'E-Cell DYPIU',
       date: 'October 1, 2025',
@@ -54,44 +55,65 @@ const Blogs = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16">
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// INSIGHTS & STORIES</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">E-Cell <span className="text-blue-400">Blogs</span></h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8 font-body">Insights, stories, and knowledge from the entrepreneurial ecosystem at DYPIU</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full flex items-center"><BookOpen className="w-5 h-5 mr-2 text-white" /><span className="text-white font-semibold">{blogPosts.length} Articles</span></div>
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full flex items-center"><TrendingUp className="w-5 h-5 mr-2 text-white" /><span className="text-white font-semibold">Entrepreneurship</span></div>
-              <div className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full flex items-center"><Lightbulb className="w-5 h-5 mr-2 text-white" /><span className="text-white font-semibold">Innovation</span></div>
-            </div>
+    <div className="min-h-screen bg-black text-white selection:bg-brand-yellow selection:text-black font-sans overflow-x-hidden">
+
+      {/* Hero Section */}
+      <section className="min-h-[70vh] md:min-h-screen flex flex-col justify-center pt-32 pb-12 relative border-b-4 border-white">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+          >
+            <h1 className="text-7xl md:text-[15vw] leading-[0.8] font-black tracking-tighter text-transparent stroke-text hover:text-brand-yellow transition-colors duration-500 cursor-default">
+              THE<br /><span className="text-white">BLOG</span>
+            </h1>
+            <p className="text-xl md:text-3xl font-bold max-w-2xl mt-8 pl-4 border-l-8 border-brand-yellow">
+              INSIGHTS FROM THE <span className="text-brand-yellow">ENTREPRENEURIAL</span> FRONTIER.
+            </p>
           </motion.div>
         </div>
       </section>
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// LATEST POSTS</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">Featured <span className="text-blue-600">Articles</span></h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">Explore our collection of articles on entrepreneurship, innovation, and the startup ecosystem</p>
-          </motion.div>
-          <div className="max-w-4xl mx-auto">
+
+      <FunkyMarquee text="READING" speed={25} className="bg-brand-yellow text-black border-y-4 border-black -rotate-1 scale-105 z-20" />
+
+      {/* Featured Articles Section */}
+      <section className="py-12 md:py-20 px-4 bg-zinc-900 border-t-4 border-white">
+        <div className="container mx-auto">
+          <h2 className="text-3xl md:text-6xl font-black mb-16 tracking-tighter uppercase">
+            FEATURED <span className="text-brand-yellow">POSTS</span>
+          </h2>
+
+          <div className="grid grid-cols-1 gap-12">
             {blogPosts.map((blog, index) => (
-              <motion.div key={blog.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 mb-12">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 font-space">{blog.title}</h3>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-gray-600 text-sm space-x-6">
-                    <div className="flex items-center"><Calendar className="w-4 h-4 mr-2" /><span>{blog.date}</span></div>
-                    <div className="flex items-center"><Clock className="w-4 h-4 mr-2" /><span>{blog.readTime}</span></div>
+              <motion.div
+                key={blog.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-black border-4 border-white rounded-[2rem] p-8 md:p-12 shadow-[12px_12px_0px_#FFB22C] hover:shadow-[8px_8px_0px_#FFB22C] hover:translate-x-1 hover:translate-y-1 transition-all group"
+              >
+                <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+                  <div className="flex-1">
+                    <div className="flex gap-4 mb-6">
+                      <span className="bg-zinc-800 text-white px-4 py-1 rounded-full font-mono text-sm border border-zinc-600">{blog.category}</span>
+                      <span className="bg-brand-yellow text-black px-4 py-1 rounded-full font-mono font-bold text-sm">{blog.readTime}</span>
+                    </div>
+                    <h3 className="text-2xl md:text-5xl font-black mb-6 uppercase leading-tight group-hover:text-brand-yellow transition-colors">
+                      {blog.title}
+                    </h3>
+                    <p className="text-xl text-gray-400 font-bold mb-8 leading-relaxed max-w-3xl">
+                      {blog.excerpt}
+                    </p>
+                    <Link to={blog.link} className="inline-flex items-center text-xl font-black uppercase hover:underline decoration-4 decoration-brand-yellow underline-offset-4">
+                      READ ARTICLE <ArrowRight className="ml-2 w-6 h-6" />
+                    </Link>
                   </div>
-                  <Link
-                    to={blog.link}
-                    className="bg-gradient-primary text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center"
-                  >
-                    <span>Read More</span>
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
+                  <div className="hidden lg:block">
+                    <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center border-4 border-black animate-spin-slow">
+                      <BookOpen className="w-16 h-16 text-black" />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -99,36 +121,22 @@ const Blogs = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-primary">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm font-bold">// JOIN THE MOVEMENT</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-space">Stay Updated with E-Cell DYPIU</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto font-body">Subscribe to our newsletter and never miss insights, event updates, and opportunities from the entrepreneurial world.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <JoinInfoPopover>
-                <a
-                  href="https://forms.gle/Jg2szi9CoK6sNbE97"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Join Our Community"
-                  className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center font-space"
-                >
-                  <Users className="w-5 h-5 mr-2" />
-                  Join Our Community
-                </a>
-              </JoinInfoPopover>
-              <Link
-                to="/events"
-                className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center font-space"
-              >
-                <Calendar className="w-5 h-5 mr-2" />
-                Explore Events
-              </Link>
-            </div>
-          </motion.div>
+      <section className="py-12 md:py-20 bg-brand-yellow border-y-4 border-black text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-black text-black mb-8 uppercase">Stay Updated</h2>
+          <div className="flex justify-center gap-4">
+            <a href="https://forms.gle/Jg2szi9CoK6sNbE97" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-8 py-4 text-xl font-black uppercase border-4 border-transparent hover:border-white hover:bg-zinc-900 transition-all">
+              Subscribe Newsletter
+            </a>
+          </div>
         </div>
       </section>
+
+      <style>{`
+        .stroke-text {
+          -webkit-text-stroke: 2px white;
+        }
+      `}</style>
     </div>
   );
 };

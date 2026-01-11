@@ -19,12 +19,29 @@ import BlogDetail2 from './pages/BlogDetail2';
 import BlogDetail3 from './pages/BlogDetail3';
 import Linktree from './pages/Linktree';
 import './App.css';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      // clean up if necessary
+    };
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="App">
+      <div className="App font-sans selection:bg-brand-yellow selection:text-black">
         <Navbar />
         <main>
           <Routes>

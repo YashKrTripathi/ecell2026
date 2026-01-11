@@ -1,16 +1,17 @@
+
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { 
-  Mail, 
-  MapPin, 
-  Clock,
+import FunkyMarquee from '../components/FunkyMarquee';
+import {
+  Mail,
+  MapPin,
   Instagram,
   Linkedin,
-  MessageCircle
+  MessageCircle,
+  ArrowUpRight
 } from 'lucide-react';
 
 const Contact = () => {
-  // Ensure page starts from top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,245 +21,112 @@ const Contact = () => {
       icon: Mail,
       title: 'Email Us',
       details: 'ecell.dypiu@gmail.com',
-      description: 'Send us an email anytime',
-      link: 'mailto:ecell.dypiu@gmail.com'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      details: 'DYPIU Campus, Akurdi',
-      description: 'Pune, Maharashtra 411044',
-      link: 'https://maps.app.goo.gl/Hqh4zbbnfpexfRpc8'
+      link: 'mailto:ecell.dypiu@gmail.com',
+      button: 'SEND MAIL'
     },
     {
       icon: Instagram,
       title: 'Follow Us',
       details: '@ecell.dypiu',
-      description: 'Stay updated with our latest activities',
-      link: 'https://www.instagram.com/ecell.dypiu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+      link: 'https://www.instagram.com/ecell.dypiu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+      button: 'FOLLOW'
     },
     {
       icon: Linkedin,
-      title: 'Connect With Us',
+      title: 'Connect',
       details: 'E-Cell DYPIU',
-      description: 'Professional networking and updates',
-      link: 'https://www.linkedin.com/company/ecell-dypiu/posts/?feedView=all'
+      link: 'https://www.linkedin.com/company/ecell-dypiu/posts/?feedView=all',
+      button: 'CONNECT'
     },
     {
       icon: MessageCircle,
-      title: 'Join WhatsApp Community',
-      details: 'E-Cell Community',
-      description: 'Connect and collaborate with members',
-      link: 'https://chat.whatsapp.com/LlZrAibpCEdBrnpDwrGaQT?mode=wwt'
-    }
-  ];
-
-
-
-  const faqs = [
-    {
-      question: 'How can I join E-Cell DYPIU?',
-      answer: 'You can join by filling out our membership form during recruitment drives or by contacting us directly.'
-    },
-    {
-      question: 'Do I need prior business experience?',
-      answer: 'No prior experience is required! We welcome students from all backgrounds who are passionate about entrepreneurship.'
-    },
-    {
-      question: 'What events do you organize?',
-      answer: 'We organize workshops, competitions, networking events, guest lectures, and our annual E-Summit.'
-    },
-    {
-      question: 'Is there a membership fee?',
-      answer: 'Basic membership is free for DYPIU students. Some premium events may have nominal participation fees.'
+      title: 'Join Community',
+      details: 'WhatsApp Group',
+      link: 'https://chat.whatsapp.com/LlZrAibpCEdBrnpDwrGaQT?mode=wwt',
+      button: 'JOIN NOW'
     }
   ];
 
   return (
-    <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// CONTACT US</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">
-              Get in <span className="text-blue-400">Touch</span>
-            </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8 font-body">
-              Have questions? Want to join our community? We'd love to hear from you!
-            </p>
+    <div className="min-h-screen bg-black text-white selection:bg-brand-yellow selection:text-black font-sans overflow-x-hidden">
 
+      {/* Hero Section */}
+      <section className="min-h-[70vh] md:min-h-screen flex flex-col justify-center pt-32 pb-12 relative border-b-4 border-white">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+          >
+            <h1 className="text-7xl md:text-[12vw] leading-[0.8] font-black tracking-tighter text-transparent stroke-text hover:text-brand-yellow transition-colors duration-500 cursor-default">
+              GET IN<br /><span className="text-white">TOUCH</span>
+            </h1>
+            <p className="text-xl md:text-3xl font-bold max-w-2xl mt-12 pl-4 border-l-8 border-brand-yellow uppercase">
+              Ready to start something <span className="text-brand-yellow underline decoration-wavy">BIG?</span>
+            </p>
           </motion.div>
         </div>
       </section>
 
-      
+      <FunkyMarquee text="CONNECT" direction="right" speed={20} className="bg-white text-black border-y-4 border-black rotate-1 scale-105 z-20" />
 
-      {/* Contact Info Cards */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// REACH US</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Contact <span className="text-blue-600">Information</span>
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              Multiple ways to reach us - choose what works best for you
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Info Grid */}
+      <section className="py-12 md:py-20 px-4 bg-zinc-900 border-t-4 border-black">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 p-8 rounded-2xl text-center hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-2"
+                whileHover={{ y: -10 }}
+                className="bg-black border-4 border-zinc-800 p-8 rounded-[2rem] hover:border-brand-yellow hover:shadow-[8px_8px_0px_#FFB22C] transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <info.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 border-4 border-black group-hover:bg-brand-yellow transition-colors">
+                  <info.icon className="w-8 h-8 text-black" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 font-space">{info.title}</h3>
-                <p className="text-blue-600 font-semibold mb-2 font-space">{info.details}</p>
-                <p className="text-gray-700 text-sm font-body">{info.description}</p>
-                {info.link !== '#' && (
-                  <a
-                    href={info.link}
-                    target={info.link.includes('instagram') || info.link.includes('linkedin') || info.link.includes('whatsapp') ? '_blank' : '_self'}
-                    rel={info.link.includes('instagram') || info.link.includes('linkedin') || info.link.includes('whatsapp') ? 'noopener noreferrer' : ''}
-                    className="inline-block mt-4 text-purple-600 hover:text-purple-700 font-semibold"
-                  >
-                    {info.link.includes('whatsapp') ? 'Join Now →' : info.link.includes('instagram') || info.link.includes('linkedin') ? 'Follow Us →' : 'Contact Now →'}
-                  </a>
-                )}
+                <h3 className="text-2xl font-black uppercase mb-2">{info.title}</h3>
+                <p className="text-gray-400 font-mono mb-8 font-bold">{info.details}</p>
+
+                <a href={info.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-lg font-black uppercase hover:text-brand-yellow transition-colors">
+                  {info.button} <ArrowUpRight className="ml-2 w-5 h-5" />
+                </a>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Location Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// LOCATION</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Find <span className="text-blue-600">Us</span>
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              Visit us at our campus location
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="bg-white p-12 rounded-3xl shadow-2xl text-center">
-              <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-8">
-                <MapPin className="w-12 h-12 text-white" />
+      {/* Location Section - Brutalist Map Card */}
+      <section className="py-12 md:py-20 px-4 bg-black">
+        <div className="container mx-auto">
+          <div className="bg-zinc-900 border-4 border-white p-8 md:p-12 rounded-[3rem] relative overflow-hidden">
+            <div className="flex flex-col lg:flex-row gap-12 items-center">
+              <div className="flex-1">
+                <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
+                  VISIT <span className="text-brand-yellow">HQ</span>
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-gray-300 mb-8 leading-relaxed">
+                  DY Patil International University<br />
+                  Sector 29, Pradhikaran, Nigdi,<br />
+                  Akurdi, Pune 411044
+                </p>
+                <a href="https://maps.app.goo.gl/Hqh4zbbnfpexfRpc8" target="_blank" rel="noopener noreferrer" className="bg-brand-yellow text-black text-xl font-black px-8 py-4 border-4 border-black hover:bg-white transition-colors inline-block">
+                  GET DIRECTIONS
+                </a>
               </div>
-              
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 font-space">
-                D. Y. Patil International University
-              </h3>
-              
-              <p className="text-xl text-gray-600 mb-8 font-body leading-relaxed">
-                Sector 29, Pradhikaran, Nigdi, Near Akurdi Railway Station,<br />
-                Akurdi, Pune, Maharashtra 411044
-              </p>
-              
-              <a
-                href="https://maps.app.goo.gl/Hqh4zbbnfpexfRpc8"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                Get Directions
-              </a>
-              
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Mail className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Email</h4>
-                  <p className="text-gray-600">ecell.dypiu@gmail.com</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Office Hours</h4>
-                  <p className="text-gray-600">Mon-Fri: 9AM-6PM</p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Campus</h4>
-                  <p className="text-gray-600">DYPIU Akurdi</p>
-                </div>
+              <div className="flex-1 w-full h-80 bg-zinc-800 border-4 border-zinc-600 rounded-3xl flex items-center justify-center relative">
+                <MapPin className="w-24 h-24 text-brand-yellow animate-bounce" />
+                <p className="absolute bottom-4 font-mono text-sm opacity-50">MAP PLACEHOLDER</p>
               </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// FAQ</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
-              Frequently Asked <span className="text-blue-600">Questions</span>
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-body">
-              Quick answers to common questions about E-Cell DYPIU
-            </p>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 p-6 rounded-2xl hover:bg-gray-100 transition-all duration-300"
-              >
-                <h4 className="text-lg font-semibold text-gray-900 mb-3 font-space">{faq.question}</h4>
-                <p className="text-gray-700 font-body leading-relaxed">{faq.answer}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
+
+      <style>{`
+        .stroke-text {
+          -webkit-text-stroke: 2px white;
+        }
+      `}</style>
     </div>
   );
 };

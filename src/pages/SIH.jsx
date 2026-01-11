@@ -106,7 +106,7 @@ const SIH = () => {
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
-                                <p className="text-blue-400 mb-4 tracking-widest font-mono text-sm">// 48 HOUR HACKATHON</p>
+                                {/* Removed 48 HOUR HACKATHON text */}
                                 <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-space">
                                     {eventDetails.title}
                                 </h1>
@@ -165,7 +165,7 @@ const SIH = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// EVENT HIGHLIGHTS</p>
+                        {/* Removed EVENT HIGHLIGHTS text */}
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
                             Innovation & <span className="text-blue-600">Excellence</span>
                         </h2>
@@ -265,7 +265,7 @@ const SIH = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// PROBLEM STATEMENTS</p>
+                        {/* Removed PROBLEM STATEMENTS text */}
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
                             Real-World <span className="text-blue-600">Challenges</span>
                         </h2>
@@ -306,7 +306,7 @@ const SIH = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <p className="text-blue-600 mb-4 tracking-widest font-mono text-sm font-bold">// EXPERT PANEL</p>
+                        {/* Removed EXPERT PANEL text */}
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-space">
                             Our Esteemed <span className="text-blue-600">Judges</span>
                         </h2>
