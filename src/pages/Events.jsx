@@ -71,7 +71,7 @@ const Events = () => {
     },
     {
       id: 3,
-      title: 'SIH',
+      title: "SIH'25",
       date: '23rd and 24th September 2025',
       time: '48 Hour Hackathon',
       location: 'DYPIU Campus',
