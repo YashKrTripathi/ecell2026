@@ -141,14 +141,14 @@ const Events = () => {
               <motion.div
                 key={index}
                 whileHover={{ y: -10 }}
-                className="group bg-zinc-900 border-4 border-zinc-700 hover:border-brand-yellow rounded-[2rem] overflow-hidden transition-all duration-300"
+                className="group bg-zinc-900 border-4 border-zinc-700 hover:border-brand-yellow rounded-[2rem] overflow-hidden transition-all duration-300 h-full flex flex-col"
               >
                 <div className="h-64 bg-white p-8 border-b-4 border-black relative overflow-hidden">
                   <img src={event.image} alt={event.title} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-1">
                   <h3 className="text-3xl font-black uppercase mb-4">{event.title}</h3>
-                  <div className="flex justify-between items-center border-t-2 border-zinc-700 pt-4 mt-4">
+                  <div className="flex justify-between items-center border-t-2 border-zinc-700 pt-4 mt-auto">
                     <span className="font-mono text-brand-yellow">{event.date}</span>
                     <Link to={`/events/${event.title.toLowerCase().replace("'", "").replace("25", "")}`}>
                       <div className="w-12 h-12 bg-black border-2 border-white rounded-full flex items-center justify-center group-hover:bg-brand-yellow group-hover:text-black group-hover:border-black transition-all">
