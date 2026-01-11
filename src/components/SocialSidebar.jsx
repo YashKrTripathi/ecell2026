@@ -45,7 +45,7 @@ const SocialSidebar = () => {
 
   return (
     <div
-      className="hidden md:flex fixed right-0 z-50 flex-col gap-0"
+      className="flex fixed right-0 z-50 flex-col gap-0"
       style={{ top: '45%', transform: 'translateY(-50%)' }}
     >
       {socials.map((social) => (

@@ -76,7 +76,14 @@ const Home = () => {
     <div className="min-h-screen bg-brand-white text-black overflow-hidden">
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center bg-black px-4 pt-56 pb-12 md:pt-32 md:pb-20">
+      <section className="relative min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center bg-black px-4 pt-56 pb-12 md:pt-32 md:pb-20 overflow-hidden">
+        {/* Background Image: Grayscale & Dim */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <img src="/hero-bg.png" alt="Hero Background" className="w-full h-full object-cover grayscale opacity-60" />
+          {/* Gradient Overlay for extra dimming/readability */}
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+
         <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
@@ -171,7 +178,11 @@ const Home = () => {
       {/* Large Statement Section */}
       <section className="py-20 md:py-40 bg-black text-white px-4 border-t border-white/10">
         <div className="container mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl text-brand-yellow font-black font-mono tracking-tighter mb-8">THE VISION</h2>
+          <div className="mb-12">
+            <h2 className="inline-block bg-brand-yellow text-black font-black text-3xl md:text-5xl px-8 py-3 transform -rotate-2 border-4 border-white shadow-[8px_8px_0px_white] hover:rotate-0 hover:shadow-none transition-all duration-300 cursor-default">
+              THE VISION
+            </h2>
+          </div>
           <h2 className="text-4xl md:text-7xl font-bold font-sans max-w-5xl mx-auto leading-tight">
             "We don't just predict the future. We <span className="text-brand-yellow underline decoration-wavy underline-offset-8">incubate</span> it."
           </h2>
