@@ -78,8 +78,8 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center bg-black px-4 pt-56 pb-12 md:pt-32 md:pb-20 overflow-hidden">
         {/* Background Image: Grayscale & Dim */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <img src="/hero-bg.png" alt="Hero Background" className="w-full h-full object-cover grayscale opacity-60" />
+        <div className="absolute inset-0 w-full h-full z-0 bg-black">
+          <img src="/hero-bg.png" alt="Hero Background" className="w-full h-full object-cover grayscale opacity-50" />
           {/* Gradient Overlay for extra dimming/readability */}
           <div className="absolute inset-0 bg-black/40" />
         </div>

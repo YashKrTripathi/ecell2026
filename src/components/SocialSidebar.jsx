@@ -55,14 +55,12 @@ const SocialSidebar = () => {
           target="_blank"
           rel="noreferrer"
           aria-label={social.name}
-          className="flex items-center justify-center transition-all duration-200 hover:opacity-90"
+          className="flex items-center justify-center transition-all duration-200 hover:opacity-90 w-9 h-9 md:w-[50px] md:h-[50px]"
           style={{
-            backgroundColor: social.color,
-            width: '50px',
-            height: '50px'
+            backgroundColor: social.color
           }}
         >
-          <social.icon className="w-5 h-5 text-white" strokeWidth={2} />
+          <social.icon className="w-4 h-4 md:w-5 md:h-5 text-white" strokeWidth={2} />
         </a>
       ))}
     </div>
